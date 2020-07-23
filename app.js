@@ -1,11 +1,22 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 require('dotenv').config();
+require('./configs/connection');
 
+// create app
 const app = express();
 
+// add middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/', (req, res) => res.send('Started !'))
+// require routes
+const userRouter = require('./routers/users');
+
+
+// use routes
+app.use('/user', userRouter);
+
 
 
 
