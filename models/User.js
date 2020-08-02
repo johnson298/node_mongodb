@@ -4,16 +4,21 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
     firstName: {
-        type: String
+        type: String,
+        default: ""
     },
     lastName: {
-        type: String
+        type: String,
+        default: ""
     },
     email: {
-        type: String
+        type: String,
+        unique: true,
+        default: ""
     },
     age: {
-        type: Number
+        type: Number,
+        default: ""
     },
     decks: [{
         type: Schema.Types.ObjectId,
